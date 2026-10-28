@@ -1,377 +1,87 @@
 # Build Brief
 
-A build brief translates product and design intent into a clear implementation target.
+A build brief scopes an implementation increment and explains how to verify it.
 
-It sits between feature definition and development.
+The [feature definition](05-feature-definition.md) owns product behavior. Reference its requirements here rather than copying rules, states, flows, or accessibility specifications into a second source of truth.
 
-The goal is not to prescribe how the system must be engineered.
+For a small change without a separate feature definition, put the required behavior directly in the issue or brief. Keep the documentation proportional to the decision.
 
-The goal is to make the intended experience explicit enough that a developer — or an AI coding agent — can implement it without filling important product gaps with assumptions.
+## Increment
 
----
+### [Name]
 
-## Feature
+**Status:** Draft / Ready for Build / In Build / QA / Shipped  
+**Feature definition and version:**  
+**Related decisions:**  
+**Design references:**  
+**Implementation / issue / PR:**  
 
-### [Feature or capability name]
+Reference a reviewed commit or document version when a build depends on a specific specification. If requirements change during implementation, update the references and affected checks.
 
-**Status:** Ready for Build / In Build / QA / Shipped
-**Related feature definition:**
-**Related decision(s):**
-**Design reference:**
+## Outcome and scope
 
----
+What will this increment make possible?
 
-## Goal
+| Requirement reference | Included in this increment? | Delivery note |
+| --- | --- | --- |
+| [Link or requirement ID] | Yes / No | Dependencies, sequencing, or agreed deferral |
 
-What are we building, and what should become possible because it exists?
+Identify deferred requirements explicitly. An increment must leave a coherent experience; defer a whole capability if omitting its recovery or access behavior would make it unsafe or unusable.
 
-Describe the intended outcome in plain language.
+## Current implementation
 
-*
+Describe relevant behavior that exists today. Include paths or links to components, services, data models, and tests after inspecting the project.
 
----
+Distinguish verified behavior from assumptions. Do not mark a proposed capability as implemented.
 
-## Existing behavior
+## Reuse and preserve
 
-What happens today?
+What existing components, tokens, contracts, or behavior should this work reuse or preserve? Link to their authoritative locations.
 
-Include existing functionality that should:
+## Dependencies and readiness
 
-* Remain unchanged
-* Be modified
-* Be removed
-* Be reused
+| Dependency or open question | Owner | Blocks this increment? | Resolution |
+| --- | --- | --- | --- |
+| | | Yes / No | |
 
-### Current behavior
+Include availability of APIs, content, permissions, data, and designs where relevant. Product behavior required by this increment must be settled before marking it Ready for Build.
 
-*
+## Implementation considerations
 
----
+Record known delivery constraints, compatibility requirements, and integration boundaries.
 
-## Desired behavior
+Engineering chooses the implementation within those boundaries. If a technical limitation changes user-visible behavior, resolve it with the product owner and update the feature definition before building that change.
 
-What should happen after this work is complete?
+## Acceptance and verification
 
-Focus on observable product behavior.
+Map checks to the source requirements so coverage is visible without maintaining a second specification.
 
-*
+| Requirement reference | Scenario / action | Expected observable result | Evidence |
+| --- | --- | --- | --- |
+| | | | Not run / result and link |
 
----
+Cover relevant primary flows, alternate states, failure recovery, permissions, responsive behavior, and accessibility. Include regression checks for behavior this increment could affect.
 
-## User flow
-
-Describe the expected sequence from entry through completion.
-
-```text
-Entry
-  ↓
-Current state
-  ↓
-User action
-  ↓
-System response
-  ↓
-Updated state
-```
-
-### Primary flow
-
-1.
-2.
-3.
-4.
-
----
-
-## Interaction requirements
-
-Define important interaction behavior that should survive implementation.
-
-Consider:
-
-* Primary and secondary actions
-* Confirmation behavior
-* Progressive disclosure
-* Selection behavior
-* Editing
-* Navigation
-* Save behavior
-* Feedback
-* Loading
-* Focus
-* Return states
-
-### Requirements
-
-*
-
----
-
-## Business rules
-
-List the rules implementation must respect.
-
-| Rule | Expected behavior |
-| ---- | ----------------- |
-|      |                   |
-|      |                   |
-
-Avoid leaving product rules implicit in mockups.
-
----
-
-## States
-
-Define the meaningful product states and what should happen in each.
-
-| State   | What is shown | Available actions |
-| ------- | ------------- | ----------------- |
-| Default |               |                   |
-| Loading |               |                   |
-| Empty   |               |                   |
-| Error   |               |                   |
-| Success |               |                   |
-
-Add feature-specific states as needed.
-
----
-
-## Edge cases
-
-Document exceptions that would otherwise require implementation-time interpretation.
-
-| Scenario | Expected behavior |
-| -------- | ----------------- |
-|          |                   |
-|          |                   |
-
-Focus on cases with meaningful product consequences.
-
----
-
-## Data requirements
-
-What information does the experience depend on?
-
-### Read
-
-What existing information needs to be retrieved?
-
-*
-
-### Write
-
-What information needs to be created or updated?
-
-*
-
-### Persist
-
-What needs to remain available across sessions, screens, or states?
-
-*
-
-### Derived
-
-What should the system calculate or infer rather than asking the user to provide?
-
-*
-
----
-
-## Permissions and access
-
-Who can:
-
-* View this?
-* Create it?
-* Change it?
-* Approve it?
-* Delete or cancel it?
-
-| Role | Access |
-| ---- | ------ |
-|      |        |
-|      |        |
-
-If access changes by state, document that explicitly.
-
----
-
-## Content requirements
-
-Identify copy that carries product meaning rather than leaving it to implementation.
-
-Consider:
-
-* Labels
-* Status names
-* Error messages
-* Empty states
-* Confirmation language
-* Helper text
-* System notifications
-
-### Required content
-
-*
-
----
-
-## Responsive behavior
-
-What should change across screen sizes?
-
-Define behavior rather than exact pixel values unless those values are meaningful requirements.
-
-Consider:
-
-* Layout changes
-* Stacking
-* Navigation
-* Tables
-* Overflow
-* Touch interaction
-* Content priority
-* Persistent actions
-
-### Requirements
-
-*
-
----
-
-## Accessibility requirements
-
-Define accessibility behavior that implementation should preserve.
-
-Consider:
-
-* Semantic structure
-* Keyboard access
-* Focus order
-* Focus management
-* Screen-reader labels
-* Error association
-* Dynamic announcements
-* Touch targets
-* Reduced motion
-* Non-color indicators
-
-### Requirements
-
-*
-
----
-
-## Dependencies
-
-What must already exist or be resolved?
-
-Consider:
-
-* APIs
-* Data structures
-* Authentication
-* Permissions
-* Existing components
-* Other features
-* Third-party services
-* Content
-* Product decisions
-
-### Dependencies
-
-*
-
----
-
-## Preserve
-
-What existing behavior, system, component, or design pattern should **not** be changed as part of this work?
-
-This is especially useful when working inside an existing product or using AI-assisted development.
-
-*
-
----
+Expected results are verification targets. Record actual results separately; a written test plan is not evidence that a check passed.
 
 ## Out of scope
 
-What should implementation intentionally leave alone?
+List adjacent work excluded from this increment. Link to its owning requirement or issue where useful.
 
-*
+## Findings during build
 
----
+| Finding | Product behavior affected? | Decision / resolution | Documents and checks updated |
+| --- | --- | --- | --- |
+| | Yes / No | | |
 
-## Acceptance criteria
+An implementation question can remain an engineering decision when it preserves the specified experience. A new product question should be resolved explicitly rather than silently becoming behavior.
 
-Describe what must be true for the work to be considered complete.
+## Completion record
 
-Use observable behavior rather than implementation details.
+- Implemented requirements and any agreed deferrals:
+- Verification performed and evidence:
+- Known limitations:
+- Updated specification and decision references:
+- Follow-up observation or [learning log](07-learning-log.md):
 
-* [ ]
-* [ ]
-* [ ]
-* [ ]
-
----
-
-## QA scenarios
-
-What should be explicitly tested before shipping?
-
-### Primary path
-
-* [ ]
-
-### Alternate states
-
-* [ ]
-
-### Edge cases
-
-* [ ]
-
-### Responsive
-
-* [ ]
-
-### Accessibility
-
-* [ ]
-
----
-
-## Open implementation questions
-
-Questions discovered during build should be surfaced rather than silently resolved when they affect product behavior.
-
-| Question | Product decision needed? | Resolution |
-| -------- | ------------------------ | ---------- |
-|          | Yes / No                 |            |
-|          | Yes / No                 |            |
-
-Technical implementation choices that don't change the experience can remain engineering decisions.
-
----
-
-## Build principle
-
-Implementation inevitably reveals details that weren't obvious during design.
-
-That is useful.
-
-The goal isn't to eliminate every question before development begins.
-
-It is to distinguish between:
-
-**implementation decisions** — how something should be built
-
-and
-
-**product decisions** — how something should behave
-
-When implementation uncovers a product decision, bring it back into the decision-making process rather than allowing the product to change accidentally.
-
-**Design intent should survive the build, even when the implementation evolves.**
+Use Shipped only after release. Record what actually happened, including checks that remain unperformed.
