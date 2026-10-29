@@ -8,6 +8,16 @@ The goal is not to prescribe every screen upfront.
 
 The goal is to make the intended behavior, rules, states, and boundaries clear enough that design and development can move forward without relying on assumptions.
 
+## How this document is used
+
+This is the source of truth for the feature's intended behavior: rules, states, recovery, permissions, and experience requirements. Link to decisions for rationale and design references for visual detail.
+
+A [build brief](06-build-brief.md) selects the requirements included in an implementation increment and defines delivery constraints and verification. It should reference this document rather than repeat it.
+
+Give important requirements stable identifiers when they need to be referenced across build work or tests. If implementation reveals a change to intended behavior, update this definition and record the decision together. Mark unresolved behavior explicitly; do not present it as approved.
+
+For a small change, one document can cover definition and delivery. Keep each requirement in one authoritative place.
+
 ---
 
 ## Feature
@@ -18,6 +28,7 @@ The goal is to make the intended behavior, rules, states, and boundaries clear e
 **Owner:**
 **Related decision(s):**
 **Related work:**
+**Design reference:**
 
 ---
 
