@@ -47,6 +47,14 @@ Technical choices that preserve the agreed experience belong with engineering. Q
 
 ## Examples and evidence
 
+### Applied to a real project
+
+[Selecting a page section without activating it](https://github.com/marianneevett/portfolio/blob/9750335363b02395decfa6bfd039f0a567b5ce24/docs/editor-selection-and-preview.md) documents a decision from my portfolio's visual editor: separating section selection from visitor interaction. It traces the tradeoff into pointer and keyboard behavior, recorded verification, and known limitations.
+
+This retrospective covers the October 23, 2026 foundation increment. It distinguishes historical checks from verification performed for the write-up and makes no measured outcome claims. The link points to a fixed version so the example remains consistent with this description.
+
+### Fictional worked example
+
 The workshop booking example is fictional. Its constraints and simulated implementation finding illustrate the method; they are not research findings, shipped functionality, or measured outcomes. Examples do not expose private project documentation.
 
 This repository currently contains documentation, not an application or a component library.
